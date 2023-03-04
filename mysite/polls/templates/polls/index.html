@@ -1,13 +1,13 @@
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
-        <!--<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> question id url to my other endpoint - this is hardcoded-->
+       {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> question id url to my other endpoint - this is hardcoded {% endcomment %}
        
-        <!--instead of defining polls/question it uses the name so it will search for the url named detail and use the question id--> 
-        <!--  <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li> -->
+        {% comment %} instead of defining polls/question it uses the name so it will search for the url named detail and use the question id
+         <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>  {% endcomment %}
        
-        <!-- points to specific namespace -->
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> 
+         {% comment %} points to specific namespace {% endcomment %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>  
 
     {% endfor %}
     </ul>

@@ -1,5 +1,5 @@
 <form action="{% url 'polls:vote' question.id %}" method="post">
-    {% csrf_token %}
+    {% csrf_token %} <!--Cross site request forgeries-->
     <fieldset>
         <legend><h1>{{ question.question_text }}</h1></legend>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -9,10 +9,10 @@
         {% endfor %}
     </fieldset>
     <input type="submit" value="Vote">
-    </form>
+</form>
     
 
-{% comment %} #### 
+{% comment %} 
 <h1>{{ question.question_text }}</h1>
 <ul>
 {% for choice in question.choice_set.all %}
