@@ -154,3 +154,4 @@ sql.sql
 mysite/polls/models.py
 mysite/polls/migrations/0001_initial.py
 mysite/mysite/settings.py
+django-polls/

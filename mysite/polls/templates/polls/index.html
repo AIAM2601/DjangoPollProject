@@ -1,20 +1,25 @@
 {% load static %}
-
+<html>
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<html>
+<body>
+    <div id="list5">
+        <h1>POLL GAME</h1>
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+            {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> question id url to my other endpoint - this is hardcoded {% endcomment %}
+            
+                {% comment %} instead of defining polls/question it uses the name so it will search for the url named detail and use the question id
+                <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>  {% endcomment %}
+            
+                {% comment %} points to specific namespace {% endcomment %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>  
 
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-       {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> question id url to my other endpoint - this is hardcoded {% endcomment %}
-       
-        {% comment %} instead of defining polls/question it uses the name so it will search for the url named detail and use the question id
-         <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>  {% endcomment %}
-       
-         {% comment %} points to specific namespace {% endcomment %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>  
-
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+</body>

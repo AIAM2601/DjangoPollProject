@@ -1,8 +1,35 @@
+* {
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
 li a {
-    color: green;
     font-size: 24px;
+    color: rgb(249, 249, 249);
 }
 
 body {
     background: white url("images/desktop-1920x1080.jpg") no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(249, 249, 249);
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+#list5 {
+    text-align: left;
+    /* background-color: blue; */
+    padding: 50px;
+    border-radius: 40px;
+    border: 5px solid blue
 }
